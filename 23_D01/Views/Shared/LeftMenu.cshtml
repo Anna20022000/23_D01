@@ -1,0 +1,14 @@
+﻿@{
+    var phongs = ViewData["Phongs"] as List<Phong>;
+}
+
+<h3>DEPARTUMENTS</h3>
+@if (phongs != null && phongs.Any())
+{
+    <ul class="list-group">
+        @foreach (var item in phongs)
+        {
+            <li class="list-group-item"><a href="/Home/Index/@item.Maphong">@item.Ten</a></li>
+        }
+    </ul>
+}

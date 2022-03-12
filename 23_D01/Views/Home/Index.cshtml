@@ -1,0 +1,27 @@
+﻿@{
+    var nhanviens = ViewData["NhanViens"] as List<NhanVien>;
+}
+
+<div class="row">
+    @if (nhanviens != null && nhanviens.Any())
+    {
+        @foreach (var item in nhanviens)
+        {
+            <div class="col-6 card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4 mg-image">
+                        <img src="/images/img200x200.png" class="img-fluid rounded-start" alt="avt">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text"><b>Họ và tên: @item.Ten</b></p>
+                            <p class="card-text"><b>Ngày sinh: </b>@item.Ngaysinh</p>
+                            <p class="card-text"><b>Chức vụ: </b>@item.Chucvu</p>
+                            <p class="card-text"><b>Chuyên môn: </b>@item.Chuyenmon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

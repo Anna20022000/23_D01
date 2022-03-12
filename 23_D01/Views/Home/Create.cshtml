@@ -1,0 +1,56 @@
+﻿@{ 
+    var phongs = ViewData["Phongs"] as List<Phong>;
+}
+
+<div><h3>Thêm nhân viên mới</h3></div>
+
+<form class="row g-3" asp-action="Create">
+    <div class="col-12">
+        <label for="inputPhong" class="form-label">Phòng</label>
+        <select id="inputPhong" class="form-select">
+            @if (phongs != null && phongs.Any())
+            {
+                foreach (var item in phongs)
+                {
+                    <option>@item.Ten</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-12">
+        <label for="inputMaNV" class="form-label">Mã nhân viên</label>
+        <input type="text" disabled class="form-control" id="inputMaNV">
+    </div>
+    <div class="col-12">
+        <label for="inputTen" class="form-label">Tên nhân viên</label>
+        <input type="password" class="form-control" id="inputTen">
+    </div>
+    <div class="col-12">
+        <label for="inputNgaySinh" class="form-label">Ngày sinh</label>
+        <input type="date" class="form-control" id="inputNgaySinh" placeholder="dd/mm/yyyy">
+    </div>
+    <div class="col-12">
+        <label class="col-sm-2 form-label">Giới tính</label>
+        <input class="form-check-input" type="radio" name="inputGioiTinh" value="Nam">
+        <span class="mr-5">Nam</span>
+        <input class="form-check-input" type="radio" name="inputGioiTinh" value="Nữ">
+        <span>Nữ</span>
+    </div>
+    <div class="col-12">
+        <label for="inputAnh" class="form-label">Ảnh đại diện</label>
+        <input type="file" class="form-control" id="inputAnh">
+    </div>
+    <div class="col-12">
+        <label for="inputChucVu" class="form-label">Chức vụ</label>
+        <input type="text" class="form-control" id="inputChucVu">
+    </div>
+    <div class="col-12">
+        <label for="inputChuyenMon" class="form-label">Chuyên môn</label>
+        <input type="text" class="form-control" id="inputChuyenMon">
+    </div>
+
+    <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-primary">Thêm mới</button>
+    </div>
+</form>
+
